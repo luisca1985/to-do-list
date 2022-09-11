@@ -1,11 +1,12 @@
-from flask import Flask
+from flask import Flask, request
 
 app = Flask(__name__)
 
 
 @app.route('/')
 def hello():
-    return 'Hello world'
+    ip_user = request.remote_addr
+    return f'Hello, the ip is {ip_user}'
 
 
 if __name__ == '__main__':
